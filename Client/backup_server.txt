@@ -1,0 +1,37 @@
+            Console.WriteLine("test 2em dépot");
+            Player player = new Player();
+            Player player2 = new Player();
+            Deck tmp = new Deck();
+            Deck playedDeck = new Deck();
+
+            tmp.deck_master();
+
+            for (int i = 0; i < 8; i++)
+            {
+                Random rnd = new Random();
+                int month = rnd.Next(0, (31 - i));
+                player.getDeck().add_carte(tmp.PutCard(month));
+            }
+
+            for (int i = 0; i < 8; i++)
+            {
+                Random rnd = new Random();
+                int month = rnd.Next(0, (23 - i));
+                player2.getDeck().add_carte(tmp.PutCard(month));
+            }
+
+            Console.WriteLine("passer un contrat svp");
+            player.makeDeal();
+            Console.WriteLine("-------------------");
+            player.getDeck().aff_deck();
+            player2.getDeck().aff_deck();
+
+            Console.WriteLine("-------------------");
+
+            //playedDeck.add_carte(player2.getDeck().PutCard(0));
+            //playedDeck.aff_deck();
+            player.PlayCard(playedDeck);
+
+            //On ne ferme pas la console immédiatement.
+            Console.WriteLine("fin");
+            Console.ReadKey();
